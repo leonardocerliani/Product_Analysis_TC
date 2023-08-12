@@ -29,7 +29,9 @@ WITH min_purchase AS (
   GROUP BY user_pseudo_id, event_date
 ),
 min_session_start AS (
-  SELECT    user_pseudo_id,
+  SELECT
+    event_date,
+    user_pseudo_id,
     MIN(event_timestamp) AS min_session_start_timestamp
   FROM
     `turing_data_analytics.raw_events`
